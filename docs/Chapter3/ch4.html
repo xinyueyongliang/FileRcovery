@@ -1,0 +1,474 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第4节：EXT3文件系统恢复文件 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch5.html" />
+    
+    
+    <link rel="prev" href="ch3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    基于不同文件系统下文件删除与恢复的原理分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Chapter1/">
+            
+                <a href="../Chapter1/">
+            
+                    
+                    第一章：FAT32文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Chapter1/ch1.html">
+            
+                <a href="../Chapter1/ch1.html">
+            
+                    
+                    第1节：FAT32文件系统总体结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Chapter1/ch2.html">
+            
+                <a href="../Chapter1/ch2.html">
+            
+                    
+                    第2节：文件删除原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Chapter1/ch3.html">
+            
+                <a href="../Chapter1/ch3.html">
+            
+                    
+                    第3节：文件恢复原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Chapter1/ch4.html">
+            
+                <a href="../Chapter1/ch4.html">
+            
+                    
+                    第4节：FAT32文件恢复实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    第二章：NTFS文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/ch1.html">
+            
+                <a href="../Chapter2/ch1.html">
+            
+                    
+                    第1节：NTFS文件系统的结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/ch2.html">
+            
+                <a href="../Chapter2/ch2.html">
+            
+                    
+                    第2节：$Boot文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/ch3.html">
+            
+                <a href="../Chapter2/ch3.html">
+            
+                    
+                    第3节：$MFT元文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/ch4.html">
+            
+                <a href="../Chapter2/ch4.html">
+            
+                    
+                    第4节：分析文件记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/ch5.html">
+            
+                <a href="../Chapter2/ch5.html">
+            
+                    
+                    第5节：NTFS数据恢复
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第三章：EXT3文件系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="ch1.html">
+            
+                <a href="ch1.html">
+            
+                    
+                    第1节：EXT3文件系统结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="ch2.html">
+            
+                <a href="ch2.html">
+            
+                    
+                    第2节：EXT3文件系统存取文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="ch3.html">
+            
+                <a href="ch3.html">
+            
+                    
+                    第3节：EXT3文件系统删除文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="ch4.html">
+            
+                <a href="ch4.html">
+            
+                    
+                    第4节：EXT3文件系统恢复文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="ch5.html">
+            
+                <a href="ch5.html">
+            
+                    
+                    第5节：EXT3文件系统恢复文件实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第4节：EXT3文件系统恢复文件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;4&#x8282;&#xFF1A;ext3&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6062;&#x590D;&#x6587;&#x4EF6;">&#x7B2C;4&#x8282;&#xFF1A;EXT3&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6062;&#x590D;&#x6587;&#x4EF6;</h1>
+<p>&#x200B;           Ubuntu&#x4E0B;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6062;&#x590D;&#x7684;&#x539F;&#x7406;&#x662F;&#x901A;&#x8FC7;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684; inode &#x503C;&#x6765;&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4FE1;&#x606F;&#x3002;&#x5728;ext3&#x548C;ext4&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x901A;&#x8FC7; inode &#x6765;&#x63CF;&#x8FF0;&#x5176;&#x6570;&#x636E;&#x5B58;&#x653E;&#x7684;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#xFF0C;&#x5F53;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#x4EE5;&#x540E;&#xFF0C;inode&#x7684;&#x6570;&#x636E;&#x6307;&#x9488;&#x90E8;&#x5206;&#x88AB;&#x6E05;&#x96F6;&#xFF0C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x533A;&#x6CA1;&#x6709;&#x592A;&#x591A;&#x53D8;&#x5316;&#x3002;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x90FD;&#x662F;&#x901A;&#x8FC7; inode &#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x5F53; inode &#x6570;&#x636E;&#x6307;&#x9488;&#x88AB;&#x6E05;&#x96F6;&#x4EE5;&#x540E;&#xFF0C;&#x5373;&#x4FBF;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x8FD8;&#x5728;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x628A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7EC4;&#x5408;&#x51FA;&#x6765;&#x3002;&#x5F53; ext3 &#x548C; ext4 &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x5143;&#x6570;&#x636E; metadata &#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x5143;&#x6570;&#x636E; metadata &#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4F1A;&#x6709;&#x4E00;&#x4EFD;&#x62F7;&#x8D1D;&#x3002;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#x4E86;&#xFF0C;&#x5B83;&#x7684;inode&#x4FE1;&#x606F;&#x4F1A;&#x5728;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x5148;&#x4FDD;&#x5B58;&#x4E00;&#x4EFD;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8981;&#x5220;&#x9664;&#x6587;&#x4EF6; inode &#x76F8;&#x5173;&#x4FE1;&#x606F;&#x6E05;&#x96F6;&#x3002;&#x8FD9;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x662F;&#x5FAA;&#x73AF;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5F53;&#x64CD;&#x4F5C;&#x8FC7;&#x591A;&#x65F6;&#xFF0C;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x7684; inode &#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x4F1A;&#x88AB;&#x65B0;&#x7684;&#x6570;&#x636E;&#x66FF;&#x6362;&#xFF0C;&#x8FD9;&#x5C31;&#x5F7B;&#x5E95;&#x4E27;&#x5931;&#x4E86;&#x6839;&#x636E; inode &#x627E;&#x56DE;&#x6570;&#x636E;&#x7684;&#x673A;&#x4F1A;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch3.html" class="navigation navigation-prev " aria-label="Previous page: 第3节：EXT3文件系统删除文件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch5.html" class="navigation navigation-next " aria-label="Next page: 第5节：EXT3文件系统恢复文件实验">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第4节：EXT3文件系统恢复文件","level":"1.4.4","depth":2,"next":{"title":"第5节：EXT3文件系统恢复文件实验","level":"1.4.5","depth":2,"path":"Chapter3/ch5.md","ref":"Chapter3/ch5.md","articles":[]},"previous":{"title":"第3节：EXT3文件系统删除文件","level":"1.4.3","depth":2,"path":"Chapter3/ch3.md","ref":"Chapter3/ch3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter3/ch4.md","mtime":"2019-06-18T05:16:31.300Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-19T08:55:11.487Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
